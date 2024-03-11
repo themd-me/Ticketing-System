@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4>{{ subs.category }}</h4>
+        └── {{ subs.title }}
+    </div>
+
+    <div class="card-body">
+        {{ subs.body|safe }}
+    </div>
+</div>
+<br>
+<br>
+{% endblock content %}

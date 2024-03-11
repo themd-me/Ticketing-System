@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load markdownify %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h6 class="card-title"><b>Subject:</b> {{ ticket.theme }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Ticket ID: {{ ticket.id }} | Name: {{ ticket.user.first_name }} {% if ticket.user.last_name != None %} {{ ticket.user.last_name }}{% endif %} | User ID: {{ ticket.user.user_id }}</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="row justify-content-start col-md-8">
+                <div class="alert alert-danger">
+                    {{ ticket.message|markdownify }}
+                </div>
+            </div>
+            <div id="answers"><div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        var continueRequest = true;
+
+        function get_answers() {
+            if(continueRequest){
+                $.ajax({
+                    url: './answers',
+                    type: 'GET',
+                    success: function(html) {
+                        $('#answers').html(html);
+        
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    },
+                    complete: function() {
+                        setTimeout(get_answers, 5000);
+                    }
+                });
+            }
+        }
+
+        get_answers();
+    </script>
+
+{% endblock content %}

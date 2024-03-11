@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">
+        Ochiq ticketlar
+      </h5>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Theme</th>
+            <th scope="col">Created time</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in tickets %}
+            {% if i.is_open %}
+              {% if i.visited %}
+              <tr>
+                <th scope="row">{{ i.id }}</th>
+                <td>{{ i.user.user_id }}</td>
+                <td>{{ i.theme }}</td>
+                <td>{{ i.created_at }}</td>
+                <td><span class="badge badge-success">Read</span></td>
+                <td>
+                  <a href="./{{ i.id }}/" class="btn btn-outline-danger">
+                    Javob berish
+                  </a>
+                </td>
+              </tr>
+              {% else %}
+              <tr class="alert-secondary">
+                <th scope="row">{{ i.id }}</th>
+                <td>{{ i.user.user_id }}</td>
+                <td>{{ i.theme }}</td>
+                <td>{{ i.created_at }}</td>
+                <td><span class="badge badge-danger">Unread</span></td>
+                <td>
+                  <a href="./{{ i.id }}/" class="btn btn-outline-danger">
+                    Javob berish
+                  </a>
+                </td>
+              </tr>
+              {% endif %}
+            {% endif %}  
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        Yopilgan ticketlar
+      </h5>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Theme</th>
+            <th scope="col">Created time</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in tickets %}
+          {% if not i.status %}
+            <tr>
+              <th scope="row">{{ i.id }}</th>
+              <td>{{ i.user.user_id }}</td>
+              <td>{{ i.theme }}</td>
+              <td>{{ i.created_at }}</td>
+              <td>
+                <a href="./{{ i.id }}/" class="btn btn-outline-success">
+                  Ko'rish
+                </a>
+              </td>
+            </tr>
+          {% endif %}  
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

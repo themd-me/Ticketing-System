@@ -1,0 +1,81 @@
+{% load markdownify %}
+<div>
+    {% for answer in answers %}
+    {% if answer.by_whom == 'user' %}
+        <div class="row justify-content-start col-md-8">
+            <div class="alert alert-danger">
+                {{ answer.message|markdownify }}
+            </div>
+        </div>
+    {% else %}
+        <div class="row justify-content-end">
+            <div class="alert alert-info col-md-8">
+                {{ answer.message|markdownify|safe }}
+                <footer>
+                    <small>
+                        {{ answer.by_whom }}
+                    </small>
+                </footer>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% if ticket.is_open %}
+    <form id="myForm">{% csrf_token %}
+        <div class="form-group">
+            <input type="text" placeholder="Text input" class="form-control" id="message" name="message">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="is_open" id="is_open" value="closed"> Yopildi
+            </label>
+            <input type="hidden" name="user_id" id="user_id" value="{{ ticket.user.user_id }}">
+        </div>
+        <button type="button" id="submitButton" class="btn btn-dark">Yuborish</button>
+    </form>
+
+    <script>
+        function ajaxer(){
+            var formData = $("#myForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "./submit",
+                    data: formData,
+                    success: function (html) {
+                        continueRequest = true;
+                        get_answers()
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+        }
+
+        $(document).ready(function () {
+            $("#submitButton").click(function () {
+                ajaxer();
+            });
+        });
+
+        var inputElement = document.getElementById('message');
+
+        inputElement.addEventListener('input', function() {
+            if(this.value == ''){
+                continueRequest = true;
+                get_answers();
+            }else{
+                continueRequest = false;
+            }
+        });
+
+        inputElement.addEventListener('keydown', function(event){
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                ajaxer();
+                this.value = '';
+                
+            }
+        });
+
+    </script>
+</div>
+{% endif %}

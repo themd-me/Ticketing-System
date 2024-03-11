@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h6 class="card-title"><b>Categories</b></h6>
+        </div>
+
+        <div class="card-body">
+            {% for cat in cats %}
+            <div class="card-header">
+                {{ cat.category }}
+            </div>
+            <div class="card-body">
+                {% for sub in subs %}
+                    {% if cat.id == sub.category.id %}
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="./{{sub.id}}">{{ sub.title }}</a>
+                        </li>
+                      </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

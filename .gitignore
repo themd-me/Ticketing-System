@@ -1,0 +1,6 @@
+#addning files
+bot.session
+media
+static
+*/__pycache__
+System/settings.py
