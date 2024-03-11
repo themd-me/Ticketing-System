@@ -28,7 +28,7 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
     path('api/', api),
-    path('tickets/', include(urls), name='tickets'),
+    path('tickets/', include(urls)),
     path('docs/', include(url)),
     path('summernote/', include('django_summernote.urls'))
 ]
