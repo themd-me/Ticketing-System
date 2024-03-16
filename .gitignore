@@ -1,5 +1,6 @@
 #addning files
 bot.session
 static
+System/settings.py
 */__pycache__
 */migrations
