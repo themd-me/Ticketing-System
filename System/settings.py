@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+$w=n^l(b+&y53nv0hg=#8wzhjnja-48an+vuiow8ck^lja5u#'
+SECRET_KEY = 'django-random-key$w=n^l(b+&y53nv0hg=f342hjnaSDja-48an2uiow8ck^lja5u#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,11 +30,11 @@ ALLOWED_HOSTS = []
 
 #Settings for telegram bot
 
-BOT_TOKEN = '5975935546:AAFIAhyMUIb4kNwZL9zvBlb8uPNBLlq6UaY'
-AUTH_TOKEN = 'b8d0f18e9103d871c606402d7b850442'
-API_HASH = '87cbf2e01613bf08ba2c59970396ffcd'
-API_ID = 27884995
-ADMINS = [981962934, 6029063812] # Aziz aka = 147781051
+BOT_TOKEN = 'BOT_TOKEN'
+AUTH_TOKEN = 'AUTH_TOKEN'
+API_HASH = 'API_HASH from my.telegram.com'
+API_ID = 'API_ID from my.telegram.com'
+ADMINS = ['list of admins']
 
 # Application definition
 
@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'Ticketing-System',
         'USER' : 'postgres',
-        'PASSWORD' : '$mandot',
+        'PASSWORD' : 'passcode',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
