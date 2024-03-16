@@ -30,11 +30,11 @@ ALLOWED_HOSTS = []
 
 #Settings for telegram bot
 
-BOT_TOKEN = 'Telegram bot token'
-AUTH_TOKEN = 'Token for API authentication'
-API_HASH = 'API_HASH from my.telegram.org'
-API_ID = 'API_ID from my.telegram.org'
-ADMINS = ['List ID number of bot admins here']
+BOT_TOKEN = '5975935546:AAFIAhyMUIb4kNwZL9zvBlb8uPNBLlq6UaY'
+AUTH_TOKEN = 'b8d0f18e9103d871c606402d7b850442'
+API_HASH = '87cbf2e01613bf08ba2c59970396ffcd'
+API_ID = 27884995
+ADMINS = [981962934, 6029063812] # Aziz aka = 147781051
 
 # Application definition
 
@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : '',
-        'USER' : '',
-        'PASSWORD' : '',
-        'HOST' : '',
-        'PORT' : ,
+        'NAME' : 'Ticketing-System',
+        'USER' : 'postgres',
+        'PASSWORD' : '$mandot',
+        'HOST' : 'localhost',
+        'PORT' : 5432,
     }
 }
 

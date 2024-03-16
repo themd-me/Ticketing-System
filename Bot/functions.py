@@ -86,9 +86,12 @@ def save_user(event):
 
 @sync_to_async
 def get_user(id):
-    user = User.objects.get(user_id=id)
-    return user
-    
+    try:
+        user = User.objects.get(user_id=id)
+        return user
+    except DoesNotExist:   
+        print('User not found')
+
 @sync_to_async
 def save(what, id, txt):
     user = User.objects.get(user_id=id)

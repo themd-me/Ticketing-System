@@ -1,6 +1,6 @@
 #addning files
 bot.session
-media/*
 static
 */__pycache__
-System/stng.py
+System/settings.py
+*/migrations

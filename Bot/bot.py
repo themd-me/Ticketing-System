@@ -18,7 +18,8 @@ languages = [[Button.text(text, resize=True, single_use=True)] for text in langs
 #Spedefic answer for admin
 @bot.on(events.NewMessage(pattern='/start', from_users=ADMINS, incoming=True))
 async def admin_start(event):
-    await event.reply('Salom admin. Bot xizmatingizga tayyor!')
+    await functions.save_user(event)
+    await event.reply('Salom admin. Bot xizmatingizga tayyor!', buttons=btn)
 
 @bot.on(events.NewMessage(pattern='/start', chats=ADMINS, blacklist_chats=True, incoming=True))
 async def send_welcome(event):
