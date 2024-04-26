@@ -1,76 +1,71 @@
 from asgiref.sync import sync_to_async
-from System.settings import BOT_TOKEN, ALLOWED_HOSTS
+from System.settings import BOT_TOKEN
 from Tickets.models import Ticket, Answer
-from Docs.models import Category, Subcategory
-from Bot.models import Theme, User, Exception
+from Bot.models import Theme, User
 import requests
 
-@sync_to_async
-def exceptions():
-    exception = []
+
+@sync_to_async #done
+def get_lang(user_id):
+    try:
+        user = User.objects.get(user_id=user_id)
+        return user.language
+    except:
+        return 'uz'
+
+@sync_to_async #done
+def set_lang(user_id, lang):
+    user = User.objects.get(user_id=user_id)
+    user.language = lang
+    user.save()
+
+@sync_to_async  #done
+def get_status(user_id):
+    try:
+        user = User.objects.get(user_id=user_id)
+        return user.status
+    except:
+        return "just started"
+
+@sync_to_async  #done
+def set_status(user_id, status):
+    user = User.objects.get(user_id=user_id)
+    user.status = status
+    user.save()
+
+@sync_to_async #done
+def get_themes(user_id):
     themes = Theme.objects.all()
-    categories = Category.objects.all()
-    subcategories = Subcategory.objects.all()
-    exception_class = Exception.objects.all()
-
-    for the in themes:
-        exception.append(the.themes)
-    for cat in categories:
-        exception.append(cat.category)
-    for sub in subcategories:
-        exception.append(sub.title)
-    for ex in exception_class:
-        exception.append(ex.item)
-
-    return exception
-
-@sync_to_async
-def language(event):
-    user = User.objects.get(user_id=event.chat.id)
-    txt = event.message.text
-    if txt == "O'zbek":
-        user.language = 'UZ'
-    elif txt == 'Русский':
-        user.language = 'RU'
+    lang = get_lang(user_id)
+    if lang == 'uz':
+        btns = [i.Uzbek_theme for i in themes]
     else:
-        user.language = 'EN'
+        btns = [i.Russian_theme for i in themes]
+    return btns
+
+@sync_to_async #done
+def save_theme(user_id, theme):
+    user = User.objects.get(user_id=user_id)
+    user.theme = theme
     user.save()
 
 @sync_to_async
-def get_link(txt):
-    subs = Subcategory.objects.all()
-    for sub in subs:
-        if txt == sub.title:
-            return f'http://{ALLOWED_HOSTS[0]}:8000/docs/{sub.id}/'
-    return 'No link'
-
-@sync_to_async
-def get_subs(txt):
-    subcat = Subcategory.objects.filter(category__category=txt)
-    subs = [i.title for i in subcat]
-    return subs
-
-@sync_to_async
-def get(txt):
-    if txt == 'buttons':
-        themes = Theme.objects.all()
-        btns = [i.themes for i in themes]
-        return btns
-    elif txt == 'categories':
-        categories = Category.objects.all()
-        cats = [i.category for i in categories]
-        return cats
-
-@sync_to_async
-def save_ticket(event, user):
+def open_ticket(event): #done
+    user = User.objects.get(user_id=event.chat.id)
+    user.opened_ticket = True
+    user.save()
+    
     ticket = Ticket(            
             theme = user.theme,
             message = event.message.text,
             user = user
             )
-    user.opened_ticket = True
-    user.save()
     ticket.save()
+
+@sync_to_async
+def opened_ticket(user_id):
+    user = User.objects.get(user_id=user_id)
+    return user.opened_ticket
 
 @sync_to_async
 def save_user(event):
@@ -85,23 +80,6 @@ def save_user(event):
         user.save()
 
 @sync_to_async
-def get_user(id):
-    try:
-        user = User.objects.get(user_id=id)
-        return user
-    except DoesNotExist:   
-        print('User not found')
-
-@sync_to_async
-def save(what, id, txt):
-    user = User.objects.get(user_id=id)
-    if what == 'status':
-        user.status = txt
-    elif what == 'theme':
-        user.theme = txt
-    user.save()
-
-@sync_to_async
 def save_answer(event):
     ticket = Ticket.objects.filter(user__user_id=event.chat.id, is_open=True).first()
     ticket.visited = False
@@ -113,7 +91,7 @@ def save_answer(event):
     ticket.save()
     answer.save()
 
-def send_message(chat_id, text):
+def send_message(chat_id, text): #done
     server_url = f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage'
 
     params = {'chat_id' : chat_id, 'text' : text, 'parse_mode' : 'HTML'}

@@ -26,15 +26,15 @@ SECRET_KEY = 'django-random-key$w=n^l(b+&y53nv0hg=f342hjnaSDja-48an2uiow8ck^lja5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ticket.mostbyte.uz', '127.0.0.1']
 
 #Settings for telegram bot
 
-BOT_TOKEN = 'BOT_TOKEN'
-AUTH_TOKEN = 'AUTH_TOKEN'
-API_HASH = 'API_HASH from my.telegram.com'
-API_ID = 'API_ID from my.telegram.com'
-ADMINS = ['list of admins']
+BOT_TOKEN = '5975935546:AAEbCpy3jU0Ikt_BOWCqAvK9SSHSn77O9xs'
+AUTH_TOKEN = '4dcc0432982a1ddb4c26a671309c73e5'
+API_HASH = '87cbf2e01613bf08ba2c59970396ffcd'
+API_ID = 27884995
+ADMINS = [981962934, 147781051]
 
 # Application definition
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -89,9 +90,9 @@ WSGI_APPLICATION = 'System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'Ticketing-System',
+        'NAME' : 'Cloned',
         'USER' : 'postgres',
-        'PASSWORD' : 'passcode',
+        'PASSWORD' : '$mandot',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
@@ -120,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -142,7 +143,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 #Django Summernote settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+#language settings
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
+
+LANGUAGES = [
+    ('ru', 'Russian'),
+    ('uz', 'Uzbek'),
+]

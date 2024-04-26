@@ -75,7 +75,7 @@
         </thead>
         <tbody>
           {% for i in tickets %}
-          {% if not i.status %}
+          {% if not i.is_open %}
             <tr>
               <th scope="row">{{ i.id }}</th>
               <td>{{ i.user.user_id }}</td>

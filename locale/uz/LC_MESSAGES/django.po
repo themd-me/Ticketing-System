@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-26 13:46+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\Bot\bot.py:19 .\Bot\bot.py:36 .\Bot\bot.py:49
+msgid "Back"
+msgstr "🔙Ortga"
+
+#: .\Bot\bot.py:20
+msgid "choose lang"
+msgstr "Tilni tanlang👇"
+
+#: .\Bot\bot.py:37
+msgid "more than one ticket isnt allowed"
+msgstr "❗️Bittadan ortiq tiket ochish mumkin emas❗️"
+
+#: .\Bot\bot.py:41
+msgid "choose ticket theme"
+msgstr "O'zingizga kerakli mavzuni tanlang👇"
+
+#: .\Bot\bot.py:45
+msgid "please write your problem here"
+msgstr "**Iltimos, muamoyingizni yozib qoldiring:**"
+
+#: .\Bot\bot.py:49
+msgid "read documentation"
+msgstr "🗂Yo'riqnomani o'qish"
+
+#: .\Bot\bot.py:50
+msgid "you can have more info reading the doc below"
+msgstr " **🗂Yo'riqnomani o'qish** tugmasini bosish orqali ko'proq mu'lumot olshingiz mumkin👇"
+
+#: .\Bot\bot.py:63
+msgid "message received. wait for response from admins"
+msgstr "Savolingiz yuborildi. Iltimos admindan javob kuting."
+
+#: .\Bot\bot.py:67
+msgid "message is sent to admin, wait for response"
+msgstr "Ticket ochildi. Javobni kuting."
+
+#: .\Bot\bot.py:73 .\Bot\bot.py:86
+msgid "ticket"
+msgstr "🎟Tiket ochish"
+
+#: .\Bot\bot.py:73 .\Bot\bot.py:86
+msgid "docs"
+msgstr "🗂Yo'riqnoma"
+
+#: .\Bot\bot.py:74 .\Bot\bot.py:87
+msgid "setting"
+msgstr "⚙️Sozlamalar"
+
+#: .\Bot\bot.py:77
+msgid "welcome"
+msgstr "Salom, botga xush kelibsiz. Quyidagilardan birini tanlang👇"
+
+#: .\Bot\bot.py:89
+msgid "choose one of below"
+msgstr "Quyidagilardan birini tanlang👇"
