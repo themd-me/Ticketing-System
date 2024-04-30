@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import cats, subs
+from .views import cats, subs, redirect_docs
 
 urlpatterns = [
-    path('', cats, name="docs"),
-    path('<int:sub_id>/', subs),
+    path('', redirect_docs, name="docs"),
+    path('<str:locale>/', cats, name="locale"),
+    path('<str:locale>/<int:sub_id>/', subs),
 ]

@@ -38,16 +38,17 @@ async def ticket_and_docs(event):
         else:
             themes = await functions.get_themes(event.chat.id)
             btns = [[Button.inline(text, f'theme-{text}')] for text in themes]
+            btns.append([Button.inline(_('Back'), 'cancel')])
             await bot.edit_message(event.chat.id, event.message_id, _('choose ticket theme'), buttons=btns)
     elif data[0:5] == 'theme':
         await functions.set_status(event.chat.id, 'writing a problem')
         await functions.save_theme(event.chat.id, data[6:-1])
         await bot.send_message(event.chat.id, _('please write your problem here'))
         await bot.delete_messages(event.chat.id, event.message_id)
-    elif data == 'docs':
-        lang = await functions.get_lang(event.chat.id)
-        btn = [[types.KeyboardButtonWebView(_('read documentation'), f"https://{ALLOWED_HOSTS[0]}/{lang}/docs")], [Button.inline(_('Back'), 'cancel')]]
-        await bot.edit_message(event.chat.id, event.message_id, _('you can have more info reading the doc below'), buttons=btn)
+    # elif data == 'docs':
+    #     lang = await functions.get_lang(event.chat.id)
+    #     btn = [[], [Button.inline(_('Back'), 'cancel')]]
+    #     await bot.edit_message(event.chat.id, event.message_id, _('you can have more info reading the doc below'), buttons=btn)
 
 
 @bot.on(events.NewMessage(incoming=True))
@@ -69,8 +70,9 @@ async def receiving_problem(event):
 
 @bot.on(events.NewMessage(pattern='/start', incoming=True))
 async def welcome(event):
+    lang = await functions.get_lang(event.chat.id)
     btn = [
-        [Button.inline(_('ticket'), 'ticket'), Button.inline(_('docs'), 'docs')], 
+        [Button.inline(_('ticket'), 'ticket'), types.KeyboardButtonWebView(_('docs'), f"https://{ALLOWED_HOSTS[0]}/docs/{lang}/")], 
         [Button.inline(_('setting'), 'setting')]
     ]
     await functions.save_user(event)
@@ -83,7 +85,7 @@ async def cancel(event):
     activate(language)
 
     btns = [
-        [Button.inline(_('ticket'), 'ticket'), Button.inline(_('docs'), 'docs')], 
+        [Button.inline(_('ticket'), 'ticket'), types.KeyboardButtonWebView(_('docs'), f"https://{ALLOWED_HOSTS[0]}/docs/{language}/")], 
         [Button.inline(_('setting'), 'setting')]
         ]
     await bot.edit_message(event.chat.id, event.message_id, _('choose one of below'), buttons=btns)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 13:46+0500\n"
+"POT-Creation-Date: 2024-04-30 16:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\Bot\bot.py:19 .\Bot\bot.py:36 .\Bot\bot.py:49
+#: .\Bot\bot.py:19 .\Bot\bot.py:36 .\Bot\bot.py:41
 msgid "Back"
 msgstr "🔙Ortga"
 
@@ -30,46 +30,46 @@ msgstr "Tilni tanlang👇"
 msgid "more than one ticket isnt allowed"
 msgstr "❗️Bittadan ortiq tiket ochish mumkin emas❗️"
 
-#: .\Bot\bot.py:41
+#: .\Bot\bot.py:42
 msgid "choose ticket theme"
 msgstr "O'zingizga kerakli mavzuni tanlang👇"
 
-#: .\Bot\bot.py:45
+#: .\Bot\bot.py:46
 msgid "please write your problem here"
 msgstr "**Iltimos, muamoyingizni yozib qoldiring:**"
 
-#: .\Bot\bot.py:49
-msgid "read documentation"
-msgstr "🗂Yo'riqnomani o'qish"
-
-#: .\Bot\bot.py:50
-msgid "you can have more info reading the doc below"
-msgstr " **🗂Yo'riqnomani o'qish** tugmasini bosish orqali ko'proq mu'lumot olshingiz mumkin👇"
-
-#: .\Bot\bot.py:63
+#: .\Bot\bot.py:64
 msgid "message received. wait for response from admins"
-msgstr "Savolingiz yuborildi. Iltimos admindan javob kuting."
+msgstr "Ticket ochildi. Iltimos admindan javob kuting."
 
-#: .\Bot\bot.py:67
+#: .\Bot\bot.py:68
 msgid "message is sent to admin, wait for response"
-msgstr "Ticket ochildi. Javobni kuting."
+msgstr "Yuborildi! Javobni kuting."
 
-#: .\Bot\bot.py:73 .\Bot\bot.py:86
+#: .\Bot\bot.py:75 .\Bot\bot.py:88
 msgid "ticket"
 msgstr "🎟Tiket ochish"
 
-#: .\Bot\bot.py:73 .\Bot\bot.py:86
+#: .\Bot\bot.py:75 .\Bot\bot.py:88 .\Docs\views.py:16
 msgid "docs"
 msgstr "🗂Yo'riqnoma"
 
-#: .\Bot\bot.py:74 .\Bot\bot.py:87
+#: .\Bot\bot.py:76 .\Bot\bot.py:89
 msgid "setting"
 msgstr "⚙️Sozlamalar"
 
-#: .\Bot\bot.py:77
+#: .\Bot\bot.py:79
 msgid "welcome"
 msgstr "Salom, botga xush kelibsiz. Quyidagilardan birini tanlang👇"
 
-#: .\Bot\bot.py:89
+#: .\Bot\bot.py:91
 msgid "choose one of below"
 msgstr "Quyidagilardan birini tanlang👇"
+
+#~ msgid "read documentation"
+#~ msgstr "🗂Yo'riqnomani o'qish"
+
+#~ msgid "you can have more info reading the doc below"
+#~ msgstr ""
+#~ " **🗂Yo'riqnomani o'qish** tugmasini bosish orqali ko'proq mu'lumot "
+#~ "olshingiz mumkin👇"

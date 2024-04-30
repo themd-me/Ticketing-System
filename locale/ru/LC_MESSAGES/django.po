@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 13:46+0500\n"
+"POT-Creation-Date: 2024-04-30 16:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\Bot\bot.py:19 .\Bot\bot.py:36 .\Bot\bot.py:49
+#: .\Bot\bot.py:19 .\Bot\bot.py:36 .\Bot\bot.py:41
 msgid "Back"
 msgstr "🔙Назад"
 
@@ -32,46 +32,45 @@ msgstr "Выберите язык👇"
 msgid "more than one ticket isnt allowed"
 msgstr "❗️Открытие более одного билета не допускается❗️"
 
-#: .\Bot\bot.py:41
+#: .\Bot\bot.py:42
 msgid "choose ticket theme"
 msgstr "Пожалуйста, выберите необходимую категорию👇"
 
-#: .\Bot\bot.py:45
+#: .\Bot\bot.py:46
 msgid "please write your problem here"
 msgstr "**Пожалуйста, напишите о своей проблеме:**"
 
-#: .\Bot\bot.py:49
-msgid "read documentation"
-msgstr "🗂Читать документацию"
-
-#: .\Bot\bot.py:50
-msgid "you can have more info reading the doc below"
-msgstr "Для просмотра документации нажмите кнопку **«🗂Читать документацию»**"
-
-#: .\Bot\bot.py:63
+#: .\Bot\bot.py:64
 msgid "message received. wait for response from admins"
 msgstr "Тикет открыт. Пожалуйста дождитесь ответа от администратора."
 
-#: .\Bot\bot.py:67
+#: .\Bot\bot.py:68
 msgid "message is sent to admin, wait for response"
-msgstr "Ваш вопрос был отправлен. Пожалуйста дождитесь ответа."
+msgstr "Вопрос отправлен. Пожалуйста дождитесь ответа."
 
-#: .\Bot\bot.py:73 .\Bot\bot.py:86
+#: .\Bot\bot.py:75 .\Bot\bot.py:88
 msgid "ticket"
 msgstr "🎟Открыть тикет"
 
-#: .\Bot\bot.py:73 .\Bot\bot.py:86
+#: .\Bot\bot.py:75 .\Bot\bot.py:88 .\Docs\views.py:16
 msgid "docs"
 msgstr "🗂Документация"
 
-#: .\Bot\bot.py:74 .\Bot\bot.py:87
+#: .\Bot\bot.py:76 .\Bot\bot.py:89
 msgid "setting"
 msgstr "⚙️Настройки"
 
-#: .\Bot\bot.py:77
+#: .\Bot\bot.py:79
 msgid "welcome"
 msgstr "Здравствуйте и добро пожаловать в бот. Выберите один из следующих👇"
 
-#: .\Bot\bot.py:89
+#: .\Bot\bot.py:91
 msgid "choose one of below"
 msgstr "Выберите один из ниже👇"
+
+#~ msgid "read documentation"
+#~ msgstr "🗂Читать документацию"
+
+#~ msgid "you can have more info reading the doc below"
+#~ msgstr ""
+#~ "Для просмотра документации нажмите кнопку **«🗂Читать документацию»**"

@@ -1,28 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
-        <div class="card-header">
-            <h6 class="card-title"><b>Categories</b></h6>
-        </div>
+<h1 class="m-2">{{ docs }}</h1>
 
-        <div class="card-body">
-            {% for cat in cats %}
-            <div class="card-header">
+
+    <div class="accordion" id="accordionExample">
+        {% for cat in cats %}
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse-{{ forloop.counter }}">
                 {{ cat.category }}
+            </button>
+          </h2>
+          <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse show" aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <ul>
+                    {% for sub in subs %}
+                        {% if sub.linked_category == cat %}
+                            <a href="./{{ sub.id }}">
+                                <li>{{ sub.title|safe }}</li>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
-            <div class="card-body">
-                {% for sub in subs %}
-                    {% if cat.id == sub.category.id %}
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="./{{sub.id}}">{{ sub.title }}</a>
-                        </li>
-                      </ul>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            {% endfor %}
+          </div>
         </div>
+        {% endfor %}
     </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 {% endblock content %}

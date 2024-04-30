@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['ticket.mostbyte.uz', '127.0.0.1']
 
 #Settings for telegram bot
 
-BOT_TOKEN = '5975935546:AAEbCpy3jU0Ikt_BOWCqAvK9SSHSn77O9xs'
+BOT_TOKEN = ''
 AUTH_TOKEN = '4dcc0432982a1ddb4c26a671309c73e5'
 API_HASH = '87cbf2e01613bf08ba2c59970396ffcd'
 API_ID = 27884995
@@ -121,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -151,6 +151,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale/')]
 
 LANGUAGES = [
+    ('en', 'English'),
     ('ru', 'Russian'),
     ('uz', 'Uzbek'),
 ]
