@@ -30,11 +30,11 @@ ALLOWED_HOSTS = []
 
 #Settings for telegram bot
 
-BOT_TOKEN = 'BOT_TOKEN'
-AUTH_TOKEN = 'Token for API authentication'
-API_HASH = 'API_HASH from my.telegram.org'
-API_ID = 'API_ID from my.telegram.org'
-ADMINS = [IDs of admins]
+BOT_TOKEN = ''
+AUTH_TOKEN = ''
+API_HASH = ''
+API_ID = 123456
+ADMINS = []
 
 # Application definition
 

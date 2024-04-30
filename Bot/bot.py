@@ -45,10 +45,6 @@ async def ticket_and_docs(event):
         await functions.save_theme(event.chat.id, data[6:-1])
         await bot.send_message(event.chat.id, _('please write your problem here'))
         await bot.delete_messages(event.chat.id, event.message_id)
-    # elif data == 'docs':
-    #     lang = await functions.get_lang(event.chat.id)
-    #     btn = [[], [Button.inline(_('Back'), 'cancel')]]
-    #     await bot.edit_message(event.chat.id, event.message_id, _('you can have more info reading the doc below'), buttons=btn)
 
 
 @bot.on(events.NewMessage(incoming=True))
