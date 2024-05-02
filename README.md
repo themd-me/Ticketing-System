@@ -19,7 +19,8 @@ Django version for the project is 5.0 and supports Python 3.10 and later. But th
 python -m venv /path/to/new/virtual/environment
 ```
  2. Activate your virtual environment
-**For Windows:**
+
+ **For Windows:**
 ```bash
 /venv-folder/scripts/activate
 ````
@@ -80,6 +81,7 @@ If you use PostgreSQL, please fill out database credentials. Django also support
 | :-------- | :------- | :------------------------- |
 | `token` | `string` | **Required**. Your API key |
 | `text` | `string` | **Required**. Text to send |
+
  Main purpose of this API is to inform any exceptions and errors occured in your other servers.You also can use it send texts messages. TOKEN should be the same as in `seetings.py` file. If correct, API will send the text to all admins.
  
  
