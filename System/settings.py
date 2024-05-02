@@ -25,17 +25,14 @@ SECRET_KEY = 'django-random-key$w=n^l(b+&y53nv0hg=f342hjnaSDja-48an2uiow8ck^lja5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 #Settings for telegram bot
-
-BOT_TOKEN = '5975935546:AAFqP3-fSuJb0TLNuISvBfXild7a5ylEhA8'
-BOT_TOKEN = '5975935546:AAEbCpy3jU0Ikt_BOWCqAvK9SSHSn77O9xs'
-AUTH_TOKEN = '4dcc0432982a1ddb4c26a671309c73e5'
-API_HASH = '87cbf2e01613bf08ba2c59970396ffcd'
-API_ID = 27884995
-ADMINS = [147781051, 981962934]
+BOT_TOKEN = 'bot token from @botfather'
+AUTH_TOKEN = 'your token for authentication'
+API_HASH = 'available in my.telegram.org'
+API_ID = 'available in my.telegram.org'
+ADMINS = ['IDs of admins to send messages']
 
 # Application definition
 
@@ -91,9 +88,9 @@ WSGI_APPLICATION = 'System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'Cloned',
-        'USER' : 'postgres',
-        'PASSWORD' : '$mandot',
+        'NAME' : 'DB name',
+        'USER' : 'username',
+        'PASSWORD' : '12345678',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
